@@ -11,7 +11,7 @@ using Color = System.Drawing.Color;
 
 #endregion
 
-namespace Tracker
+namespace Neo's Little Helper
 {
     internal enum WardType
     {
