@@ -11,7 +11,7 @@ using Color = System.Drawing.Color;
 
 #endregion
 
-namespace Neo's Little Helper
+namespace Neo
 {
     internal enum WardType
     {
@@ -139,15 +139,15 @@ namespace Neo's Little Helper
             _defaultCircle = new Render.Circle(Position, 200, Color, 5, true);
             _defaultCircle.VisibleCondition +=
                 sender =>
-                    WardTracker.Config.Item("Enabled").GetValue<bool>() &&
-                    !WardTracker.Config.Item("Details").GetValue<KeyBind>().Active &&
+                    WardNeo.Config.Item("Enabled").GetValue<bool>() &&
+                    !WardNeo.Config.Item("Details").GetValue<KeyBind>().Active &&
                     Render.OnScreen(Drawing.WorldToScreen(Position));
             _defaultCircle.Add(0);
             _defaultCircleFilled = new Render.Circle(Position, 200, Color.FromArgb(25, Color), -142857, true);
             _defaultCircleFilled.VisibleCondition +=
                 sender =>
-                    WardTracker.Config.Item("Enabled").GetValue<bool>() &&
-                    !WardTracker.Config.Item("Details").GetValue<KeyBind>().Active &&
+                    WardNeo.Config.Item("Enabled").GetValue<bool>() &&
+                    !WardNeo.Config.Item("Details").GetValue<KeyBind>().Active &&
                     Render.OnScreen(Drawing.WorldToScreen(Position));
             _defaultCircleFilled.Add(-1);
 
@@ -155,15 +155,15 @@ namespace Neo's Little Helper
             _rangeCircle = new Render.Circle(Position, Range, Color, 10, false);
             _rangeCircle.VisibleCondition +=
                 sender =>
-                    WardTracker.Config.Item("Enabled").GetValue<bool>() &&
-                    WardTracker.Config.Item("Details").GetValue<KeyBind>().Active;
+                    WardNeo.Config.Item("Enabled").GetValue<bool>() &&
+                    WardNeo.Config.Item("Details").GetValue<KeyBind>().Active;
             _rangeCircle.Add(0);
 
             _rangeCircleFilled = new Render.Circle(Position, Range, Color.FromArgb(25, Color), -142857, true);
             _rangeCircleFilled.VisibleCondition +=
                 sender =>
-                    WardTracker.Config.Item("Enabled").GetValue<bool>() &&
-                    WardTracker.Config.Item("Details").GetValue<KeyBind>().Active;
+                    WardNeo.Config.Item("Enabled").GetValue<bool>() &&
+                    WardNeo.Config.Item("Details").GetValue<KeyBind>().Active;
             _rangeCircleFilled.Add(-1);
 
 
@@ -175,8 +175,8 @@ namespace Neo's Little Helper
                 _missileLine.StartPositionUpdate = () => Drawing.WorldToScreen(StartPosition);
                 _missileLine.VisibleCondition +=
                     sender =>
-                        WardTracker.Config.Item("Enabled").GetValue<bool>() &&
-                        WardTracker.Config.Item("Details").GetValue<KeyBind>().Active;
+                        WardNeo.Config.Item("Enabled").GetValue<bool>() &&
+                        WardNeo.Config.Item("Details").GetValue<KeyBind>().Active;
                 _missileLine.Add(0);
             }
 
@@ -190,7 +190,7 @@ namespace Neo's Little Helper
                 _timerText.Centered = true;
                 _timerText.VisibleCondition +=
                     sender =>
-                        WardTracker.Config.Item("Enabled").GetValue<bool>() &&
+                        WardNeo.Config.Item("Enabled").GetValue<bool>() &&
                         Render.OnScreen(Drawing.WorldToScreen(Position));
 
                 _timerText.TextUpdate =
@@ -227,15 +227,15 @@ namespace Neo's Little Helper
     }
 
     /// <summary>
-    /// Ward tracker tracks enemy wards and traps.
+    /// Ward Neo tracks enemy wards and traps.
     /// </summary>
-    public static class WardTracker
+    public static class WardNeo
     {
         private static readonly List<WardData> PosibleWards = new List<WardData>();
         private static readonly List<DetectedWard> DetectedWards = new List<DetectedWard>();
         public static Menu Config;
 
-        static WardTracker()
+        static WardNeo()
         {
             //Add the posible wards and their detection type:
 
@@ -389,7 +389,7 @@ namespace Neo's Little Helper
 
         public static void AttachToMenu(Menu menu)
         {
-            Config = menu.AddSubMenu(new Menu("Ward Tracker", "Ward Tracker"));
+            Config = menu.AddSubMenu(new Menu("Ward Neo", "Ward Neo"));
             Config.AddItem(new MenuItem("Details", "Show more info").SetValue(new KeyBind(16, KeyBindType.Press)));
             Config.AddItem(new MenuItem("Enabled", "Enabled").SetValue(true));
         }
