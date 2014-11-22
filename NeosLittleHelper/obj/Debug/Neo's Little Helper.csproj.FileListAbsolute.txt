@@ -1,2 +1,1 @@
 C:\Users\Enes\Desktop\Neos Little Helper\bin\Release\Tracker.exe.config
-C:\Users\Enes\Documents\GitHub\LeagueSharp\NeosLittleHelper\bin\Release\Tracker.exe.config

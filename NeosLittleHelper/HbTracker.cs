@@ -11,6 +11,14 @@ using SharpDX.Direct3D9;
 using Font = SharpDX.Direct3D9.Font;
 
 #endregion
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using LeagueSharp;
+using LeagueSharp.Common;
+using SharpDX;
+using Color = System.Drawing.Color;
 
 namespace Tracker
 {
@@ -45,6 +53,11 @@ namespace Tracker
 
         static HbTracker()
         {
+            if (!Game.Version.Contains("4.19"))
+            {
+                SummonerSpellSlots = new[] { SpellSlot.Q, SpellSlot.W };
+            }
+
             try
             {
                 foreach (var sName in SummonersNames)
