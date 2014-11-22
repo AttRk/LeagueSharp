@@ -227,7 +227,7 @@ namespace Tracker
     }
 
     /// <summary>
-    /// Ward tracker tracks enemy wards and traps.
+    /// Neos Ward Settings tracks enemy wards and traps.
     /// </summary>
     public static class WardTracker
     {
@@ -389,7 +389,7 @@ namespace Tracker
 
         public static void AttachToMenu(Menu menu)
         {
-            Config = menu.AddSubMenu(new Menu("Ward Tracker", "Ward Tracker"));
+            Config = menu.AddSubMenu(new Menu("Neos Ward Settings", "Neos Ward Settings"));
             Config.AddItem(new MenuItem("Details", "Show more info").SetValue(new KeyBind(16, KeyBindType.Press)));
             Config.AddItem(new MenuItem("Enabled", "Enabled").SetValue(true));
         }
