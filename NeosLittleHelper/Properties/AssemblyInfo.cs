@@ -1,14 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using LeagueSharp;
-using LeagueSharp.Common;
-using SharpDX;
-using Color = System.Drawing.Color;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
